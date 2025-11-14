@@ -1,0 +1,132 @@
+# Coding Challenge - Level 3
+
+## Problembeschreibung:
+#uW toeoL?o cvleoSuodfftliwghatr.eio/career
+LEVEL 3
+#WeLoveSoftware
+LEVEL 3
+u too? cloudflight.io/career
+Asteroids might be rotated
+▪ For each asteroid, dig tunnels that discover every cell
+− "discover every cell" is explained on the next slide
+▪ Either the width or the height of the minable rectangle
+is guaranteed to be 3
+▪ The other dimension is any integer between 3 and 199 (inclusive)
+▪ The outpost is now anywhere in the first row of the asteroid
+▪ A dig limit is given
+▪ Your tunnels must not have more dug cells than the dig limit
+▪ The given dig limit requires an optimal solution
+There is a visualizer.html in the input folder.
+You can use it to visualize your solutions.
+LEVEL 3
+LEVEL 3
+Valid Tunnel Layout
+Checklist
+Discover every cell: Each cell inside the minable rectangle
+must either be a tunnel, or be adjacent to a tunnel
+Your tunnels may branch at any point, but must be connected
+to the outpost as well as to each other
+Diagonals do not count as adjacent or connected
+Bedrock cannot be dug
+Your tunnels must not have more cells than the dig limit
+Input
+Name Description Example
+N Number of asteroids 2
+3 5 6
+#S###
+Minable rectangle size The width and height of the minable rectangle followed by the dig limit, #:::#
+#:::#
+and dig limit separated by a spaces
+#:::#
+s
+e
+#:::#
+m
+#:::#
+i
+t A paragraph of characters
+#####
+N
+Character ‘#’ represents bedrock
+d
+e 5 3 6
+t representation ‘:’ represents a minable cell
+a ####S##
+e
+‘S’ represents the outpost #:::::#
+p
+e #:::::#
+r
+#:::::#
+Empty line between asteroids #######
+Output
+Name Description Example
+#S###
+#XX:#
+A paragraph of characters
+#:X:#
+‘#’ represents bedrock #:X:#
+Character representation
+#:X:#
+‘:’ represents a minable cell
+(repeated N times) #:X:#
+‘S’ represents the outpost #####
+‘X’ represents a tunnel cell
+####S##
+#:::X:#
+#XXXXX#
+#:::::#
+Empty lines between asteroids are recommended but optional
+#######
+Happy
+Mining!
+#uW toeoL?o cvleoSuodfftliwghatr.eio/career
+#WeLoveSoftware
+u too? cloudflight.io/career
+
+
+## Aufgabe:
+Erstelle eine vollständige Python-Lösung die:
+1. Input-Dateien aus Inputs/ liest
+2. Jede Eingabe gemäß Problembeschreibung verarbeitet  
+3. Output-Dateien nach Outputs/ schreibt
+
+## Input-Dateien:
+- Pfad: Inputs/
+- Format: level3_*.in
+
+## Output-Dateien:
+- Pfad: Outputs/  
+- Format: level3_*.out
+
+## Template:
+```python
+from pathlib import Path
+
+def solve(input_data):
+    # Deine Lösung hier
+    lines = input_data.strip().split('\n')
+    # ... Verarbeitung ...
+    return "result"
+
+def main():
+    input_folder = Path("Inputs")
+    output_folder = Path("Outputs")
+    output_folder.mkdir(exist_ok=True)
+    
+    for input_file in sorted(input_folder.glob("level3_*.in")):
+        with open(input_file, 'r') as f:
+            data = f.read()
+        
+        result = solve(data)
+        
+        output_file = output_folder / input_file.name.replace('.in', '.out')
+        with open(output_file, 'w') as f:
+            f.write(str(result))
+        print(f"Generiert: {output_file.name}")
+
+if __name__ == "__main__":
+    main()
+```
+
+Bitte erstelle eine vollständige Lösung und speichere sie als level3.py

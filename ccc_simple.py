@@ -196,8 +196,23 @@ Bitte erstelle eine vollständige Lösung und speichere sie als level{self.level
         self.log(f"AI-Prompt gespeichert: {prompt_file}", "OK")
         return prompt
     
+    def clean_inputs_outputs(self):
+        """Lösche alle Dateien in Inputs/ und Outputs/."""
+        self.log("Bereinige Inputs/ und Outputs/...")
+        
+        # Inputs/ leeren
+        for file in Path("Inputs").glob("*"):
+            if file.is_file():
+                file.unlink()
+        
+        # Outputs/ leeren
+        for file in Path("Outputs").glob("*"):
+            if file.is_file():
+                file.unlink()
+        
+        self.log("Inputs/ und Outputs/ bereinigt", "OK")
+    
     def organize_files(self):
-        """Dateien organisieren."""
         self.log("Organisiere Dateien...")
         
         # .in Dateien nach Inputs/
@@ -376,6 +391,7 @@ Führe aus: `python ccc_simple.py {self.level}` um weiterzumachen
             self.extract_zip()
             pdf_text = self.extract_pdf_text()
             self.create_ai_prompt(pdf_text)
+            self.clean_inputs_outputs()
             self.organize_files()
         except Exception as e:
             self.log(f"Verarbeitung fehlgeschlagen: {e}", "ERROR")
@@ -410,6 +426,7 @@ Führe aus: `python ccc_simple.py {self.level}` um weiterzumachen
             self.extract_zip()
             pdf_text = self.extract_pdf_text()
             prompt = self.create_ai_prompt(pdf_text)
+            self.clean_inputs_outputs()
             self.organize_files()
         except Exception as e:
             self.log(f"Verarbeitung fehlgeschlagen: {e}", "ERROR")
@@ -457,6 +474,7 @@ Bitte generiere eine vollständige Python-Lösung für diese Coding Challenge.
         try:
             self.extract_zip()
             self.extract_pdf_text()  # Für Kontext, auch wenn nicht verwendet
+            self.clean_inputs_outputs()
             self.organize_files()
             self.generate_template()
             

@@ -1,0 +1,119 @@
+# Coding Challenge - Level 2
+
+## Problembeschreibung:
+#uW toeoL?o cvleoSuodfftliwghatr.eio/career
+LEVEL 2
+#WeLoveSoftware
+LEVEL 2
+u too? cloudflight.io/career
+The drones have established an outpost within the bedrock of each asteroid.
+This will be the starting point of each mining operation.
+▪ You are given a list of asteroids with an outpost on them
+▪ The width of the minable rectangle is always 3
+##S##
+#:X:#
+▪ The outpost is always in the middle of the first row of the asteroid
+#:X:#
+▪ For each asteroid, dig a tunnel straight down #:X:#
+#:X:#
+▪ Your tunnel must start after the outpost and stop before the bedrock
+#####
+LEVEL 2
+LEVEL 2
+Input
+Name Description Example
+N Number of asteroids 2
+3 4
+##S##
+Minable rectangle size The width followed by height of the minable rectangle, separated by a space #:::#
+#:::#
+s
+e #:::#
+m
+A paragraph of characters #:::#
+i
+t #####
+N Character ‘#’ represents bedrock
+d
+representation ‘:’ represents a minable cell 3 3
+e
+t ##S##
+a
+‘S’ represents the outpost
+e #:::#
+p
+#:::#
+e
+r
+#:::#
+Empty line between asteroids
+#####
+Output
+Name Description Example
+##S##
+A paragraph of characters #:X:#
+#:X:#
+‘#’ represents bedrock
+#:X:#
+Character representation
+‘:’ represents a minable cell #:X:#
+(repeated N times)
+#####
+‘S’ represents the outpost
+‘X’ represents a tunnel cell ##S##
+#:X:#
+#:X:#
+#:X:#
+Empty lines between asteroids are recommended but optional #####
+Happy
+Mining!
+#uW toeoL?o cvleoSuodfftliwghatr.eio/career
+#WeLoveSoftware
+u too? cloudflight.io/career
+
+
+## Aufgabe:
+Erstelle eine vollständige Python-Lösung die:
+1. Input-Dateien aus Inputs/ liest
+2. Jede Eingabe gemäß Problembeschreibung verarbeitet  
+3. Output-Dateien nach Outputs/ schreibt
+
+## Input-Dateien:
+- Pfad: Inputs/
+- Format: level2_*.in
+
+## Output-Dateien:
+- Pfad: Outputs/  
+- Format: level2_*.out
+
+## Template:
+```python
+from pathlib import Path
+
+def solve(input_data):
+    # Deine Lösung hier
+    lines = input_data.strip().split('\n')
+    # ... Verarbeitung ...
+    return "result"
+
+def main():
+    input_folder = Path("Inputs")
+    output_folder = Path("Outputs")
+    output_folder.mkdir(exist_ok=True)
+    
+    for input_file in sorted(input_folder.glob("level2_*.in")):
+        with open(input_file, 'r') as f:
+            data = f.read()
+        
+        result = solve(data)
+        
+        output_file = output_folder / input_file.name.replace('.in', '.out')
+        with open(output_file, 'w') as f:
+            f.write(str(result))
+        print(f"Generiert: {output_file.name}")
+
+if __name__ == "__main__":
+    main()
+```
+
+Bitte erstelle eine vollständige Lösung und speichere sie als level2.py
