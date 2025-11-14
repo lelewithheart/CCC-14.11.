@@ -1,0 +1,118 @@
+# Coding Challenge - Level 1
+
+## Problembeschreibung:
+Asteroid
+Mining
+#uW toeoL?o cvleoSuodfftliwghatr.eio/career
+#WeLoveSoftware
+u too? cloudflight.io/career
+In 2048…
+… humanity started mining rare minerals from the
+vast asteroid belt situated between Mars and
+Jupiter, to fuel even more ambitious engineering
+projects. Autonomous drones tirelessly carve
+tunnels into the floating boulders, searching for
+elements like iron, cobalt, and water.
+This requires sophisticated algorithms guiding them
+and planning efficient tunnel layouts. In the silent
+depths of space, drones and algorithms work in
+harmony, extracting the building blocks of
+humanity’s future.
+#uW toeoL?o cvleoSuodfftliwghatr.eio/career
+LEVEL 1
+#WeLoveSoftware
+LEVEL 1
+u too? cloudflight.io/career
+▪ An asteroid consists of a "minable rectangle"
+surrounded by a layer of bedrock
+▪ You are given a list of minable rectangle sizes
+▪ For each size, print a character representation of the asteroid
+4 3 ######
+#::::#
+#::::#
+#::::#
+######
+LEVEL 1
+LEVEL 1
+Input
+Name Description Example
+N Number of asteroids 3
+3 2
+6 4
+Minable rectangle size
+The width followed by height of the minable rectangle, separated by a space
+4 3
+(repeated N times)
+Output
+Name Description Example
+#####
+#:::#
+#:::#
+#####
+Character A paragraph of characters
+########
+representation ‘#’ represents bedrock #::::::#
+#::::::#
+(repeated N times) ‘:’ represents a minable cell #::::::#
+#::::::#
+########
+######
+#::::#
+#::::#
+#::::#
+Empty lines between asteroids are recommended but optional
+######
+For each input file, calculate the output and write it in a file.
+Upload your output file to the coding contest platform.
+Happy
+Mining!
+#uW toeoL?o cvleoSuodfftliwghatr.eio/career
+#WeLoveSoftware
+u too? cloudflight.io/career
+
+
+## Aufgabe:
+Erstelle eine vollständige Python-Lösung die:
+1. Input-Dateien aus Inputs/ liest
+2. Jede Eingabe gemäß Problembeschreibung verarbeitet  
+3. Output-Dateien nach Outputs/ schreibt
+
+## Input-Dateien:
+- Pfad: Inputs/
+- Format: level1_*.in
+
+## Output-Dateien:
+- Pfad: Outputs/  
+- Format: level1_*.out
+
+## Template:
+```python
+from pathlib import Path
+
+def solve(input_data):
+    # Deine Lösung hier
+    lines = input_data.strip().split('\n')
+    # ... Verarbeitung ...
+    return "result"
+
+def main():
+    input_folder = Path("Inputs")
+    output_folder = Path("Outputs")
+    output_folder.mkdir(exist_ok=True)
+    
+    for input_file in sorted(input_folder.glob("level1_*.in")):
+        with open(input_file, 'r') as f:
+            data = f.read()
+        
+        result = solve(data)
+        
+        output_file = output_folder / input_file.name.replace('.in', '.out')
+        with open(output_file, 'w') as f:
+            f.write(str(result))
+        print(f"Generiert: {output_file.name}")
+
+if __name__ == "__main__":
+    main()
+```
+
+Bitte erstelle eine vollständige Lösung und speichere sie als level1.py
